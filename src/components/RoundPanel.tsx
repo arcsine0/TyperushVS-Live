@@ -1,17 +1,20 @@
 import { FC } from "react";
+import { cn } from "@/lib/utils";
 
 export interface RoundPanelProps {
     round: number;
     timer: number;
-    score: number;
 }
 
-const RoundPanel: FC<RoundPanelProps> = ({ round, timer, score }) => {
+const RoundPanel: FC<RoundPanelProps> = ({ round, timer }) => {
     return (
-        <div className="flex flex-col gap-2 items-center justify-center">
+        <div 
+            className={cn(
+                "w-full flex flex-row p-4 gap-2 items-center justify-between shadow-md rounded-lg",
+            )}
+        >
             <span className="text-2xl font-bold">Round: {round}</span>
-            <span>Score: {score}</span>
-            <span className="text-2xl font-bold">Timer: {timer}</span>
+            <span className="text-2xl font-bold">{timer}</span>
         </div>
     )
 }
