@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { cn } from "@/lib/utils";
+import { cn, getInitials } from "@/lib/utils";
 
 import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
@@ -18,7 +18,7 @@ const PlayerCard: FC<PlayerCardProps> = ({ isTop, name, avatar, wins }) => {
                 <CardTitle className="flex flex-row items-center gap-2">
                     <Avatar className={cn(isTop ? "order-first" : "order-last")}>
                         <AvatarImage src={avatar} />
-                        <AvatarFallback>{name}</AvatarFallback>
+                        <AvatarFallback>{getInitials(name)}</AvatarFallback>
                     </Avatar>
                     <div className={cn(
                         "flex flex-col gap-1",
