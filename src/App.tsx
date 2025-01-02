@@ -1,15 +1,24 @@
-import { useState } from "react"
-import reactLogo from "./assets/react.svg"
-import viteLogo from "/electron-vite.animate.svg"
+import { useState } from "react";
+
+import DonationPanel from "./components/DonationPanel";
+import PlayerPanel from "./components/PlayerPanel";
+import RoundPanel from "./components/RoundPanel";
 
 function App() {
-	const [count, setCount] = useState(0)
-
 	return (
-		<div>
-			
+		<div className="w-screen h-screen flex flex-col gap-2 items-center justify-between">
+			<div className="w-full flex-1 flex flex-col gap-2 items-center justify-between">
+				<PlayerPanel isTop={true} />
+				<RoundPanel
+					round={1}
+					timer={30}
+					score={0}
+				/>
+				<PlayerPanel isTop={false} />
+			</div>
+			<DonationPanel />
 		</div>
 	)
 }
 
-export default App
+export default App;
